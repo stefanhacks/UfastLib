@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class BlitzkriegLib {
 
-	public enum Direction { Left, Right };
+	public enum Direction { Left, None, Right };
 	
 	/// <summary>
 	/// Verifies if the specified int value belongs to the interval (min, max).
@@ -89,5 +89,39 @@ public static class BlitzkriegLib {
 	/// <returns><c>Left</c> or <c>Right</c>.</returns>
 	public static Direction GetRandomDirection () {
 		return  (Direction)Random.Range (0, 2);
+	}
+
+	/// <summary>
+	/// Returns a Vector2 based on the mouse X and Y.
+	/// </summary>
+	/// <returns>The Vector2.</returns>
+	/// <param name="mouseX">X.</param>
+	/// <param name="mouseY">Y.</param>
+	public static Vector2 CastRayToClick (float mouseX, float mouseY) {
+		return new Vector2 (
+			Camera.main.ScreenToViewportPoint (new Vector3 (mouseX, mouseY, 0)).x,
+			Camera.main.ScreenToViewportPoint (new Vector3 (mouseX, mouseY, 0)).y
+		);
+	}
+
+	/// <summary>
+	/// Returns the direction of a Horizontal Swipe.
+	/// </summary>
+	/// <returns>The direction of the horizontal swipe</returns>
+	/// <param name="start">Start of the Swipe.</param>
+	/// <param name="end">End of the Swipe.</param>
+	/// <param name="minDist">Minimum distance to evaluate.</param>
+	public static Direction EvalHorizontalSwipe (float start, float end, float minDist) {
+		float dragDistance = (end - start) * 100;
+
+		if (Mathf.Abs (dragDistance) > minDist) {
+			if (dragDistance > 0) {
+				return Direction.Right;
+			} else if (dragDistance < 0) {
+				return Direction.Left;
+			}
+		}
+
+		return Direction.None;
 	}
 }
