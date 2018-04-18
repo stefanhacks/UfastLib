@@ -41,7 +41,7 @@ public static class BlitzkriegLib {
 	}
 
 	/// <summary>
-	/// Gets the game object position.
+	/// Gets the game object position translated by WorldToViewportPoint, to the interval [[0,0],[1,1]].
 	/// </summary>
 	/// <returns>Returns a Vector2 with two values from 0f to 1f and
 	/// uses the World to Viewport Point function to do so.
@@ -58,7 +58,7 @@ public static class BlitzkriegLib {
 	}
 
 	/// <summary>
-	/// Gets the game object X, offset by 0.5.
+	/// Gets the game object X translated by WorldToViewportPoint offset by 0.5, to the interval [-0.5, 0.5].
 	/// </summary>
 	/// <returns>The game object position after setting 0 as the center of the screen.</returns>
 	/// <param name="theObject">GameObject.</param>
@@ -67,7 +67,7 @@ public static class BlitzkriegLib {
 	}
 
 	/// <summary>
-	/// Gets the game object Y, offset by 0.5.
+	/// Gets the game object Y translated by WorldToViewportPoint offset by 0.5, to the interval [-0.5, 0.5].
 	/// </summary>
 	/// <returns>The game object position after setting 0 as the center of the screen.</returns>
 	/// <param name="theObject">GameObject.</param>
