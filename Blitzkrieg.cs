@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class BlitzkriegLib {
+public static class Blitzkrieg {
 
 	public enum Direction { Left, None, Right };
 	
