@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Blitzkrieg {
+public static class Ufast {
 
 	public enum Direction { Left, None, Right };
 	
